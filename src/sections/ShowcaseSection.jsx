@@ -11,6 +11,7 @@ const AppShowcase = () => {
   const cardsRef = useRef([]);
 
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     // Animation for the main section
     gsap.fromTo(
       sectionRef.current,
@@ -41,17 +42,17 @@ const AppShowcase = () => {
   }, []);
 
   return (
-    <div id="work" ref={sectionRef} className="app-showcase">
+    <section id="work" ref={sectionRef} className="app-showcase" aria-labelledby="systems-title">
       <div className="w-full">
         <div className="mb-12">
           <p className="text-blue-50 uppercase tracking-[0.2em] text-sm mb-3">Flagship systems</p>
-          <h2 className="text-4xl md:text-6xl font-semibold">Systems I&apos;ve Built</h2>
+          <h2 id="systems-title" className="text-4xl md:text-6xl font-semibold">Systems I&apos;ve Built</h2>
           <p className="text-white-50 md:text-xl mt-4">AI products designed around real operational problems.</p>
         </div>
         <div className="systems-grid">
           {portfolioProjects.map((project, index) => (
             <article key={project.name} tabIndex="0" ref={(element) => { cardsRef.current[index] = element; }} className={`system-card ${project.accent}`}>
-              <div className={`system-visual visual-${project.slug}`} aria-label={`${project.name} abstract product visualization`}>
+              <div className={`system-visual visual-${project.slug}`} role="img" aria-label={`${project.name} abstract product visualization`}>
                 <span>{project.id} / 04</span><small>{project.visualLabel}</small><strong><b>{project.mark}</b></strong>
                 <div className="system-orbit orbit-one" /><div className="system-orbit orbit-two" />
                 {project.slug === "voiceops" && <div className="voice-wave">{[1,2,3,4,5,6,7,8,9].map((bar) => <i key={bar} />)}</div>}
@@ -72,7 +73,7 @@ const AppShowcase = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

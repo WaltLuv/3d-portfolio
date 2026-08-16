@@ -7,7 +7,7 @@ const TechIconCardExperience = ({ model }) => {
   const scene = useGLTF(model.modelPath);
 
   useEffect(() => {
-    if (model.name === "Interactive Developer") {
+    if (model.name === "Three.js") {
       scene.scene.traverse((child) => {
         if (child.isMesh) {
           if (child.name === "Object_5") {

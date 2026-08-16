@@ -20,6 +20,10 @@ const HeroExperience = () => {
       <OrbitControls
         enablePan={false} // Prevents panning of the scene
         enableZoom={!isTablet} // Disables zoom on tablets
+        enableRotate={!isMobile}
+        rotateSpeed={0.25}
+        enableDamping
+        dampingFactor={0.08}
         maxDistance={20} // Maximum distance for zooming out
         minDistance={5} // Minimum distance for zooming in
         minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
@@ -34,7 +38,7 @@ const HeroExperience = () => {
           position={[0, -3.5, 0]}
           rotation={[0, -Math.PI / 4, 0]}
         >
-          <Room />
+          <Room enableEffects={!isMobile} />
           <CommandCenterPanels simplified={isMobile} />
         </group>
       </Suspense>

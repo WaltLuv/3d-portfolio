@@ -7,6 +7,7 @@ import HeroExperience from "../components/models/hero_models/HeroExperience";
 
 const Hero = () => {
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.fromTo(
       ".hero-text h1",
       { y: 50, opacity: 0 },
