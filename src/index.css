@@ -877,10 +877,12 @@ body::before { display: none; }
   position: absolute;
   inset: 0;
   display: grid;
-  place-content: center;
+  align-content: center;
+  justify-content: end;
   gap: 8px;
+  padding-right: 8vw;
   color: #d8f8ff;
-  text-align: center;
+  text-align: right;
   background:
     radial-gradient(circle at 50% 45%, rgba(60, 150, 165, .16), transparent 32%),
     linear-gradient(180deg, #090c10, #05070a);
@@ -895,6 +897,7 @@ body::before { display: none; }
 .world-webgl-fallback span { color: #62d9e8; }
 .world-webgl-fallback small {
   max-width: 280px;
+  margin-left: auto;
   margin-top: 8px;
   color: #8da0a1;
   font-size: 12px;
@@ -1544,6 +1547,13 @@ body::before { display: none; }
 
 @media (max-width: 768px) {
   .persistent-world { height: 100svh; }
+  .world-webgl-fallback {
+    align-content: start;
+    justify-content: center;
+    padding: 17vh 20px 0;
+    text-align: center;
+  }
+  .world-webgl-fallback small { margin-inline: auto; }
   .world-vignette {
     background: linear-gradient(180deg, rgba(2, 4, 7, .28), transparent 24%, transparent 58%, rgba(2, 4, 7, .64));
   }
