@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import ContactExperience from "../components/models/contact/ContactExperience";
 
 const emailConfigured = Boolean(
   import.meta.env.VITE_APP_EMAILJS_SERVICE_ID &&
@@ -39,22 +40,31 @@ const Contact = () => {
         </div>
         {!emailConfigured && <p className="contact-note">Direct email, LinkedIn, and résumé buttons will appear when their verified destinations are added.</p>}
       </div>
-      <div className="contact-panel">
-        {emailConfigured ? (
-          <form ref={formRef} onSubmit={handleSubmit}>
-            <div><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" required /></div>
-            <div><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
-            <div><label htmlFor="message">What would you like to build?</label><textarea id="message" name="message" rows="5" required /></div>
-            <button type="submit" disabled={loading}>{loading ? "Sending…" : "Send Message"}<span>↗</span></button>
-            <p className="form-status" role="status" aria-live="polite">{status}</p>
-          </form>
-        ) : (
-          <div className="contact-fallback">
-            <span>CONTACT CHANNEL</span><strong>Configuration Ready</strong>
-            <p>The secure EmailJS integration remains available and will activate automatically when the repository’s environment variables are configured.</p>
-            <a href="https://github.com/WaltLuv" target="_blank" rel="noreferrer">Connect through GitHub <span>↗</span></a>
+      <div className="contact-experience-stack">
+        <div className="contact-visual">
+          <ContactExperience />
+          <div className="contact-visual-label" aria-hidden="true">
+            <span>INTERACTIVE 3D WORKSPACE</span>
+            <strong>OPERATIONS STUDIO</strong>
           </div>
-        )}
+        </div>
+        <div className="contact-panel">
+          {emailConfigured ? (
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <div><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" required /></div>
+              <div><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
+              <div><label htmlFor="message">What would you like to build?</label><textarea id="message" name="message" rows="5" required /></div>
+              <button type="submit" disabled={loading}>{loading ? "Sending…" : "Send Message"}<span>↗</span></button>
+              <p className="form-status" role="status" aria-live="polite">{status}</p>
+            </form>
+          ) : (
+            <div className="contact-fallback">
+              <span>CONTACT CHANNEL</span><strong>Configuration Ready</strong>
+              <p>The secure EmailJS integration remains available and will activate automatically when the repository’s environment variables are configured.</p>
+              <a href="https://github.com/WaltLuv" target="_blank" rel="noreferrer">Connect through GitHub <span>↗</span></a>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

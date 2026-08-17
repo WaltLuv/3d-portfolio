@@ -1,7 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useMediaQuery } from "react-responsive";
-import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
+import TechnologyOrbitExperience from "../components/models/tech_logos/TechnologyOrbitExperience";
 import { techStackIcons } from "../constants";
 
 const capabilityGroups = [
@@ -12,7 +11,6 @@ const capabilityGroups = [
 ];
 
 const TechStack = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   useGSAP(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.from(".capability-group", { y: 35, opacity: 0, stagger: 0.12, duration: 0.75, scrollTrigger: { trigger: "#skills", start: "top 72%" } });
@@ -34,11 +32,16 @@ const TechStack = () => {
           </article>
         ))}
       </div>
-      <div className="technology-models" aria-label="Interactive three-dimensional technology models">
-        <div className="model-copy"><p className="section-kicker">3D TECHNOLOGY CORE</p><h3>Built with the same tools<br />this portfolio demonstrates.</h3></div>
-        {!isMobile ? techStackIcons.slice(0, 3).map((model) => (
-          <article className="technology-model" key={model.name}><div><TechIconCardExperience model={model} /></div><p>{model.name}</p></article>
-        )) : <div className="mobile-tech-list">{techStackIcons.slice(0, 3).map((model) => <span key={model.name}>{model.name}</span>)}</div>}
+      <div className="technology-orbit" aria-label="Interactive three-dimensional technology orbit">
+        <div className="technology-orbit-copy">
+          <p className="section-kicker">3D ENGINEERING CORE</p>
+          <h3>Dimensional tools.<br />One connected system.</h3>
+          <p>React, Python, Node, Three.js, and Git occupy one interactive engineering orbit.</p>
+        </div>
+        <div className="technology-orbit-canvas"><TechnologyOrbitExperience /></div>
+        <div className="technology-orbit-labels" aria-label="Technologies shown in the 3D scene">
+          {techStackIcons.map((model, index) => <span key={model.name}><b>0{index + 1}</b>{model.name}</span>)}
+        </div>
       </div>
     </section>
   );

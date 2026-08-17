@@ -9,7 +9,7 @@ export const portfolioProjects = [
     capabilities: ["Work Orders", "Maintenance", "Projects", "Inspections", "Owner Approvals", "VoiceOps + VisionOps"],
     accent: "cyan",
     mark: "PC",
-    visualLabel: "OPERATIONS COMMAND",
+    visualLabel: "PROPERTY OPERATIONS LAYER",
   },
   {
     id: "02",

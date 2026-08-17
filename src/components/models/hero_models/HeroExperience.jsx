@@ -2,47 +2,55 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 
-import { Room } from "./Room";
 import HeroLights from "./HeroLights";
 import Particles from "./Particles";
 import { Suspense } from "react";
-import CommandCenterPanels from "./CommandCenterPanels";
+import PropertyWorld from "../property/PropertyWorld";
+import useCanvasVisibility from "../../../hooks/useCanvasVisibility";
 
 const HeroExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const reducedMotion = useMediaQuery({ query: "(prefers-reduced-motion: reduce)" });
+  const { containerRef, isVisible, shouldRender } = useCanvasVisibility("100px");
 
   return (
-    <Canvas dpr={isMobile ? 1 : [1, 1.5]} camera={{ position: [0, 0, 15], fov: 45 }}>
-      {/* deep blue ambient */}
-      <ambientLight intensity={0.2} color="#1a1a40" />
-      {/* Configure OrbitControls to disable panning and control zoom based on device type */}
-      <OrbitControls
-        enablePan={false} // Prevents panning of the scene
-        enableZoom={!isTablet} // Disables zoom on tablets
-        enableRotate={!isMobile}
-        rotateSpeed={0.25}
-        enableDamping
-        dampingFactor={0.08}
-        maxDistance={20} // Maximum distance for zooming out
-        minDistance={5} // Minimum distance for zooming in
-        minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
-        maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
-      />
-
-      <Suspense fallback={null}>
-        <HeroLights />
-        <Particles count={isMobile ? 35 : 100} />
-        <group
-          scale={isMobile ? 0.7 : 1}
-          position={[0, -3.5, 0]}
-          rotation={[0, -Math.PI / 4, 0]}
+    <div ref={containerRef} className="canvas-shell" aria-hidden="true">
+      {shouldRender && (
+        <Canvas
+          dpr={isMobile ? 1 : [1, 1.5]}
+          frameloop={isVisible ? "always" : "never"}
+          shadows={!isMobile}
+          camera={{ position: isMobile ? [8.4, 5.8, 13.6] : [8.6, 5.2, 10.8], fov: isMobile ? 48 : 42 }}
+          gl={{ antialias: !isMobile, alpha: true, powerPreference: "high-performance" }}
         >
-          <Room enableEffects={!isMobile} />
-          <CommandCenterPanels simplified={isMobile} />
-        </group>
-      </Suspense>
-    </Canvas>
+          <fog attach="fog" args={["#03080d", 12, 24]} />
+          <ambientLight intensity={0.18} color="#173849" />
+          {!isMobile && (
+            <OrbitControls
+              target={[0, 1.15, 0]}
+              enablePan={false}
+              enableZoom={!isTablet}
+              enableRotate={!reducedMotion}
+              rotateSpeed={0.22}
+              enableDamping
+              dampingFactor={0.08}
+              minDistance={8}
+              maxDistance={16}
+              minPolarAngle={Math.PI / 4.5}
+              maxPolarAngle={Math.PI / 2.25}
+              minAzimuthAngle={-Math.PI / 3.4}
+              maxAzimuthAngle={Math.PI / 3.4}
+            />
+          )}
+          <Suspense fallback={null}>
+            <HeroLights />
+            <Particles count={isMobile ? 24 : 68} reducedMotion={reducedMotion} />
+            <PropertyWorld stage={0} mode="hero" isMobile={isMobile} reducedMotion={reducedMotion} />
+          </Suspense>
+        </Canvas>
+      )}
+    </div>
   );
 };
 

@@ -63,9 +63,14 @@ const Hero = () => {
         </header>
 
         {/* RIGHT: 3D Model or Visual */}
-        <figure>
+        <figure aria-label="Interactive miniature property with artificial intelligence layers">
           <div className="hero-3d-layout">
             <HeroExperience />
+            <figcaption className="hero-world-caption">
+              <span>INTERACTIVE PROPERTY WORLD</span>
+              <strong>REAL ESTATE × AI</strong>
+              <small>Move or drag gently to explore</small>
+            </figcaption>
           </div>
         </figure>
       </div>
