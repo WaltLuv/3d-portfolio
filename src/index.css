@@ -893,6 +893,13 @@ body::before { display: none; }
 }
 
 .world-webgl-fallback span { color: #62d9e8; }
+.world-webgl-fallback small {
+  max-width: 280px;
+  margin-top: 8px;
+  color: #8da0a1;
+  font-size: 12px;
+}
+.world-webgl-checking { opacity: .72; }
 
 .world-vignette,
 .world-grain {
