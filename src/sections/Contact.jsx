@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import ContactExperience from "../components/models/contact/ContactExperience";
 
 const emailConfigured = Boolean(
   import.meta.env.VITE_APP_EMAILJS_SERVICE_ID &&
@@ -30,23 +29,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact-section section-padding" aria-labelledby="contact-title">
-      <div className="contact-intro">
-        <p className="section-kicker">05 — PROFESSIONAL CONVERSION</p>
-        <h2 id="contact-title">Let&apos;s Build<br /><span>Something Useful.</span></h2>
-        <p>I&apos;m interested in opportunities where AI, software, automation, and real operational problems intersect.</p>
-        <div className="contact-links">
-          <a href="https://github.com/WaltLuv" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
-        </div>
-        {!emailConfigured && <p className="contact-note">Direct email, LinkedIn, and résumé buttons will appear when their verified destinations are added.</p>}
-      </div>
-      <div className="contact-experience-stack">
-        <div className="contact-visual">
-          <ContactExperience />
-          <div className="contact-visual-label" aria-hidden="true">
-            <span>INTERACTIVE 3D WORKSPACE</span>
-            <strong>OPERATIONS STUDIO</strong>
+    <section id="contact" data-world-step="7" className="world-chapter contact-chapter" aria-labelledby="contact-title">
+      <div className="chapter-panel chapter-panel-right contact-narrative">
+        <div className="contact-intro">
+          <p className="chapter-index">CHAPTER 08 · CONTACT WORKSTATION</p>
+          <h2 id="contact-title">Let&apos;s Build<br /><span>Something Useful.</span></h2>
+          <p>I&apos;m interested in opportunities where AI, software, automation, and real operational problems intersect.</p>
+          <div className="contact-links">
+            <a href="https://github.com/WaltLuv" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
           </div>
+          {!emailConfigured && <p className="contact-note">Direct email, LinkedIn, and résumé buttons will appear when their verified destinations are added.</p>}
         </div>
         <div className="contact-panel">
           {emailConfigured ? (

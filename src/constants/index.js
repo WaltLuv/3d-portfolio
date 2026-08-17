@@ -1,8 +1,8 @@
 const navLinks = [
   { name: "Systems", link: "#work" },
-  { name: "About", link: "#about" },
   { name: "Process", link: "#process" },
   { name: "Capabilities", link: "#skills" },
+  { name: "About", link: "#about" },
   { name: "Contact", link: "#contact" },
 ];
 

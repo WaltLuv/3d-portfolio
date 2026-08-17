@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import TechnologyOrbitExperience from "../components/models/tech_logos/TechnologyOrbitExperience";
 import { techStackIcons } from "../constants";
 
 const capabilityGroups = [
@@ -17,30 +16,24 @@ const TechStack = () => {
   });
 
   return (
-    <section id="skills" className="capabilities-section section-padding" aria-labelledby="capabilities-title">
-      <header className="section-heading">
-        <p className="section-kicker">04 — TECHNICAL CAPABILITIES</p>
-        <h2 id="capabilities-title">AI Product Engineering,<br /><span>End to End.</span></h2>
-        <p>Technologies organized by the role they play in building useful operational systems.</p>
-      </header>
-      <div className="capability-grid">
-        {capabilityGroups.map((group, index) => (
-          <article className="capability-group" key={group.title}>
-            <span className="capability-index">0{index + 1}</span>
-            <h3>{group.title}</h3>
-            <div>{group.items.map((item) => <span key={item}>{item}</span>)}</div>
-          </article>
-        ))}
-      </div>
-      <div className="technology-orbit" aria-label="Interactive three-dimensional technology orbit">
-        <div className="technology-orbit-copy">
-          <p className="section-kicker">3D ENGINEERING CORE</p>
-          <h3>Dimensional tools.<br />One connected system.</h3>
-          <p>React, Python, Node, Three.js, and Git occupy one interactive engineering orbit.</p>
-        </div>
-        <div className="technology-orbit-canvas"><TechnologyOrbitExperience /></div>
-        <div className="technology-orbit-labels" aria-label="Technologies shown in the 3D scene">
+    <section id="skills" data-world-step="5" className="world-chapter builder-chapter" aria-labelledby="capabilities-title">
+      <div className="chapter-panel chapter-panel-right builder-narrative">
+        <header className="chapter-heading">
+          <p className="chapter-index">CHAPTER 06 · THE BUILDER&apos;S STUDIO</p>
+          <h2 id="capabilities-title">The Tools Behind The World.</h2>
+          <p>The original dimensional technology models now live inside the shared studio—not in separate canvases.</p>
+        </header>
+        <div className="technology-name-rail" aria-label="Technologies shown as interactive objects in the 3D world">
           {techStackIcons.map((model, index) => <span key={model.name}><b>0{index + 1}</b>{model.name}</span>)}
+        </div>
+        <div className="capability-grid">
+          {capabilityGroups.map((group, index) => (
+            <article className="capability-group" key={group.title}>
+              <span className="capability-index">0{index + 1}</span>
+              <h3>{group.title}</h3>
+              <div>{group.items.map((item) => <span key={item}>{item}</span>)}</div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
