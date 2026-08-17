@@ -1,3 +1,5 @@
+import assetUrl from "../utils/assetUrl";
+
 const navLinks = [
   { name: "Systems", link: "#work" },
   { name: "Process", link: "#process" },
@@ -40,11 +42,11 @@ const techStackImgs = [
 ];
 
 const techStackIcons = [
-  { name: "React", modelPath: "/models/react_logo-transformed.glb", scale: 1, rotation: [0, 0, 0] },
-  { name: "Python", modelPath: "/models/python-transformed.glb", scale: 0.8, rotation: [0, 0, 0] },
-  { name: "Node.js", modelPath: "/models/node-transformed.glb", scale: 5, rotation: [0, -Math.PI / 2, 0] },
-  { name: "Three.js", modelPath: "/models/three.js-transformed.glb", scale: 0.05, rotation: [0, 0, 0] },
-  { name: "Git", modelPath: "/models/git-svg-transformed.glb", scale: 0.05, rotation: [0, -Math.PI / 4, 0] },
+  { name: "React", modelPath: assetUrl("/models/react_logo-transformed.glb"), scale: 1, rotation: [0, 0, 0] },
+  { name: "Python", modelPath: assetUrl("/models/python-transformed.glb"), scale: 0.8, rotation: [0, 0, 0] },
+  { name: "Node.js", modelPath: assetUrl("/models/node-transformed.glb"), scale: 5, rotation: [0, -Math.PI / 2, 0] },
+  { name: "Three.js", modelPath: assetUrl("/models/three.js-transformed.glb"), scale: 0.05, rotation: [0, 0, 0] },
+  { name: "Git", modelPath: assetUrl("/models/git-svg-transformed.glb"), scale: 0.05, rotation: [0, -Math.PI / 4, 0] },
 ];
 
 const socialImgs = [
