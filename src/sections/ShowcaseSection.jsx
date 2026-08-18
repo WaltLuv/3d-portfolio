@@ -1,80 +1,68 @@
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { portfolioProjects } from "../data/projects";
 
-gsap.registerPlugin(ScrollTrigger);
+const baselineSequence = [
+  "Business Problem",
+  "Spec Kit",
+  "Agent",
+  "Tools",
+  "Skills",
+  "Workflow",
+  "Deploy",
+];
 
-const AppShowcase = () => {
-  const sectionRef = useRef(null);
-  const cardsRef = useRef([]);
+const AppShowcase = () => (
+  <section id="work" className="project-journey" aria-labelledby="systems-title">
+    <h2 id="systems-title" className="sr-only">Systems I&apos;ve Built</h2>
 
-  useGSAP(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    // Animation for the main section
-    gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.5 }
-    );
+    {portfolioProjects.map((project, index) => (
+      <article
+        id={project.slug}
+        data-world-step={index + 1}
+        className={`world-chapter project-chapter project-chapter-${project.slug}`}
+        key={project.slug}
+        aria-labelledby={`${project.slug}-title`}
+      >
+        <div className={`chapter-panel project-narrative ${index % 2 === 0 ? "chapter-panel-right" : "chapter-panel-left"}`}>
+          <header className="chapter-heading">
+            <p className="chapter-index">CHAPTER {String(index + 2).padStart(2, "0")} · {project.category}</p>
+            <h2 id={`${project.slug}-title`}>{project.name}</h2>
+            <p className="project-world-label">{project.visualLabel}</p>
+          </header>
 
-    // Animations for each app showcase
-    cardsRef.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          delay: 0.3 * (index + 1),
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom-=100",
-          },
-        }
-      );
-    });
-  }, []);
+          <p className="project-value">{project.value}</p>
+          <p className="project-description">{project.description}</p>
 
-  return (
-    <section id="work" ref={sectionRef} className="app-showcase" aria-labelledby="systems-title">
-      <div className="w-full">
-        <div className="mb-12">
-          <p className="text-blue-50 uppercase tracking-[0.2em] text-sm mb-3">Flagship systems</p>
-          <h2 id="systems-title" className="text-4xl md:text-6xl font-semibold">Systems I&apos;ve Built</h2>
-          <p className="text-white-50 md:text-xl mt-4">AI products designed around real operational problems.</p>
+          <ul className="capability-ribbon" aria-label={`${project.name} capabilities`}>
+            {project.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
+          </ul>
+
+          {project.workflow && (
+            <ol className="vision-chapter-flow" aria-label={`${project.name} system workflow`}>
+              {project.workflow.map((step) => (
+                <li className={step === "Repair Cost" ? "is-repair" : ""} key={step}>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          )}
+
+          {project.featured && (
+            <div className="repair-cost-callout">
+              <span>Signature capability</span>
+              <strong>{project.featured}</strong>
+              <small>Illustrative system visualization only—no customer data or fabricated quote.</small>
+            </div>
+          )}
+
+          {project.slug === "baseline-studios" && (
+            <ol className="baseline-chapter-flow" aria-label="Baseline Studios system architecture">
+              {baselineSequence.map((step) => <li key={step}>{step}</li>)}
+            </ol>
+          )}
         </div>
-        <div className="systems-grid">
-          {portfolioProjects.map((project, index) => (
-            <article key={project.name} tabIndex="0" ref={(element) => { cardsRef.current[index] = element; }} className={`system-card ${project.accent}`}>
-              <div className={`system-visual visual-${project.slug}`} role="img" aria-label={`${project.name} abstract product visualization`}>
-                <span>{project.id} / 04</span><small>{project.visualLabel}</small><strong><b>{project.mark}</b></strong>
-                <div className="system-orbit orbit-one" /><div className="system-orbit orbit-two" />
-                {project.slug === "voiceops" && <div className="voice-wave">{[1,2,3,4,5,6,7,8,9].map((bar) => <i key={bar} />)}</div>}
-                {project.slug === "visionops" && <div className="scan-frame"><i /><i /><i /><i /></div>}
-                {project.slug === "baseline-studios" && <div className="agent-nodes"><i /><i /><i /><i /><i /></div>}
-                <div className="future-media">REAL PRODUCT MEDIA SLOT</div>
-              </div>
-              <div className="system-copy">
-                <p className="system-category">{project.category}</p>
-                <h3>{project.name}</h3>
-                <p className="system-value">{project.value}</p>
-                <p>{project.description}</p>
-                <div className="system-tags">{project.capabilities.map((capability) => <span key={capability}>{capability}</span>)}</div>
-                {project.workflow && <div className="vision-flow">{project.workflow.map((step, stepIndex) => <span className={step === "Repair Cost" ? "featured-step" : ""} key={step}><b>{String(stepIndex + 1).padStart(2, "0")}</b>{step}</span>)}</div>}
-                {project.featured && <div className="repair-feature"><span>★ FEATURED CAPABILITY</span><strong>{project.featured}</strong></div>}
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+      </article>
+    ))}
+  </section>
+);
 
 export default AppShowcase;

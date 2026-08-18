@@ -8,11 +8,15 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import { EffectComposer, SelectiveBloom } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
+import assetUrl from "../../../utils/assetUrl";
+
+const roomModelPath = assetUrl("/models/optimized-room.glb");
+const roomTexturePath = assetUrl("/images/textures/mat1.png");
 
 export function Room({ enableEffects = true, ...props }) {
-  const { nodes, materials } = useGLTF("/models/optimized-room.glb");
+  const { nodes, materials } = useGLTF(roomModelPath);
   const screensRef = useRef();
-  const matcapTexture = useTexture("/images/textures/mat1.png");
+  const matcapTexture = useTexture(roomTexturePath);
 
   const curtainMaterial = new THREE.MeshPhongMaterial({
     color: "#071b2b",
@@ -75,7 +79,7 @@ export function Room({ enableEffects = true, ...props }) {
       />
       <mesh
         geometry={nodes.keyboard_blinn1_0.geometry}
-        material={materials.blinn1}
+        material={materials.blin1}
       />
       <mesh
         geometry={nodes.kovrik_blinn1_0.geometry}
@@ -95,11 +99,11 @@ export function Room({ enableEffects = true, ...props }) {
       />
       <mesh
         geometry={nodes.monitor2_blinn1_0.geometry}
-        material={materials.blinn1}
+        material={materials.blin1}
       />
       <mesh
         geometry={nodes.monitor3_blinn1_0.geometry}
-        material={materials.blinn1}
+        material={materials.blin1}
       />
       <mesh
         geometry={nodes.pCylinder5_blinn1_0.geometry}
@@ -111,12 +115,12 @@ export function Room({ enableEffects = true, ...props }) {
       />
       <mesh
         geometry={nodes.polySurface53_blinn1_0.geometry}
-        material={materials.blinn1}
+        material={materials.blin1}
       />
       <mesh
         geometry={nodes.radiator_blinn1_0.geometry}
         material={radiatorMaterial}
-      />
+       />
       <mesh
         geometry={nodes.radiator_blinn1_0001.geometry}
         material={materials.blinn1}
@@ -135,7 +139,7 @@ export function Room({ enableEffects = true, ...props }) {
       />
       <mesh
         geometry={nodes.stylus_blinn1_0.geometry}
-        material={materials.blinn1}
+        material={materials.blin1}
       />
       <mesh geometry={nodes.table_blinn1_0.geometry} material={tableMaterial} />
       <mesh
@@ -161,10 +165,10 @@ export function Room({ enableEffects = true, ...props }) {
       <mesh
         geometry={nodes.vires_blinn1_0.geometry}
         material={materials.blinn1}
-      />
+     />
       <mesh
         geometry={nodes.window_blinn1_0.geometry}
-        material={materials.blinn1}
+        material={materials.blin1}
       />
       <mesh
         geometry={nodes.window4_phong1_0.geometry}
@@ -174,4 +178,4 @@ export function Room({ enableEffects = true, ...props }) {
   );
 }
 
-useGLTF.preload("/models/optimized-room.glb");
+useGLTF.preload(roomModelPath);
