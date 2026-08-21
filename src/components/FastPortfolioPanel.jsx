@@ -37,7 +37,7 @@ const FastPortfolioPanel = () => {
         <span className="world-control-dot" />Fast View
       </button>
       {open && <button type="button" className="fast-view-backdrop" aria-label="Close professional view" onClick={() => setOpen(false)} />}
-      <aside id="fast-portfolio-panel" className={`fast-portfolio-panel ${open ? "is-open" : ""}`} aria-hidden={!open} inert={open ? undefined : ""}>
+      <aside id="fast-portfolio-panel" className={`fast-portfolio-panel ${open ? "is-open" : ""}`} aria-hidden={!open} inert={!open}>
         <header>
           <div><span>Professional Index</span><strong>Walter Thornton</strong></div>
           <button ref={closeRef} type="button" onClick={() => setOpen(false)}>Close</button>
