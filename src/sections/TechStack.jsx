@@ -12,26 +12,23 @@ const capabilityGroups = [
 const TechStack = () => {
   useGSAP(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    gsap.from(".capability-group", { y: 35, opacity: 0, stagger: 0.12, duration: 0.75, scrollTrigger: { trigger: "#skills", start: "top 72%" } });
+    gsap.from(".capability-directory article", { y: 22, opacity: 0, stagger: 0.1, duration: 0.65, scrollTrigger: { trigger: "#skills", start: "top 72%" } });
   });
 
   return (
     <section id="skills" data-world-step="7" className="world-chapter builder-chapter" aria-labelledby="capabilities-title">
-      <div className="chapter-panel chapter-panel-right builder-narrative">
-        <header className="chapter-heading">
-          <p className="chapter-index">CHAPTER 08 · THE BUILDER&apos;S STUDIO</p>
-          <h2 id="capabilities-title">The Tools Behind The World.</h2>
-          <p>The original dimensional technology models now live inside the shared studio—not in separate canvases.</p>
+      <div className="chapter-panel chapter-panel-right builder-narrative editorial-chapter-panel">
+        <header className="chapter-heading chapter-heading-editorial">
+          <p className="chapter-index">08 / BUILDER STUDIO</p>
+          <h2 id="capabilities-title">The tools<br /><span>behind the world.</span></h2>
+          <p>The dimensional technology objects in the studio represent the practical stack behind the ecosystem.</p>
         </header>
-        <div className="technology-name-rail" aria-label="Technologies shown as interactive objects in the 3D world">
-          {techStackIcons.map((model, index) => <span key={model.name}><b>0{index + 1}</b>{model.name}</span>)}
-        </div>
-        <div className="capability-grid">
+        <p className="studio-tech-line" aria-label="Technologies represented in the 3D studio">{techStackIcons.map((model) => model.name).join(" · ")}</p>
+        <div className="capability-directory">
           {capabilityGroups.map((group, index) => (
-            <article className="capability-group" key={group.title}>
-              <span className="capability-index">0{index + 1}</span>
-              <h3>{group.title}</h3>
-              <div>{group.items.map((item) => <span key={item}>{item}</span>)}</div>
+            <article key={group.title}>
+              <span>0{index + 1}</span>
+              <div><h3>{group.title}</h3><p>{group.items.join(" · ")}</p></div>
             </article>
           ))}
         </div>
