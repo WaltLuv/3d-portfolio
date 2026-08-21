@@ -2,13 +2,13 @@ import { professionalExperience, professionalSummary } from "../data/profile";
 
 const Experience = () => (
   <section id="experience" data-world-step="8" className="world-chapter experience-chapter" aria-labelledby="experience-title">
-    <div className="chapter-panel chapter-panel-right experience-narrative">
-      <header className="chapter-heading">
-        <p className="chapter-index">CHAPTER 09 · PROFESSIONAL FOUNDATION</p>
-        <h2 id="experience-title">Operations<br /><span>Before Automation.</span></h2>
+    <div className="chapter-panel chapter-panel-right experience-narrative editorial-chapter-panel">
+      <header className="chapter-heading chapter-heading-editorial">
+        <p className="chapter-index">09 / PROFESSIONAL FOUNDATION</p>
+        <h2 id="experience-title">Operations<br /><span>before automation.</span></h2>
         <p>{professionalSummary}</p>
       </header>
-      <ol className="experience-timeline">
+      <ol className="experience-editorial">
         {professionalExperience.map((item) => (
           <li key={`${item.organization}-${item.period}`}>
             <span>{item.period}</span>
