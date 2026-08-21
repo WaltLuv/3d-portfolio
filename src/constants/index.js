@@ -1,266 +1,173 @@
 const navLinks = [
-  {
-    name: "Work",
-    link: "#work",
-  },
-  {
-    name: "Experience",
-    link: "#experience",
-  },
-  {
-    name: "Skills",
-    link: "#skills",
-  },
-  {
-    name: "Testimonials",
-    link: "#testimonials",
-  },
+  { name: "Work", link: "#work" },
+  { name: "Experience", link: "#experience" },
+  { name: "Skills", link: "#skills" },
+  { name: "Approach", link: "#testimonials" },
 ];
 
 const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "Operations", imgPath: "/images/concepts.svg" },
+  { text: "Voice", imgPath: "/images/chat.png" },
+  { text: "Vision", imgPath: "/images/designs.svg" },
+  { text: "Agents", imgPath: "/images/code.svg" },
+  { text: "Automation", imgPath: "/images/time.png" },
+  { text: "Intelligence", imgPath: "/images/ideas.svg" },
+  { text: "Operations", imgPath: "/images/concepts.svg" },
+  { text: "Voice", imgPath: "/images/chat.png" },
 ];
 
 const counterItems = [
-  { value: 15, suffix: "+", label: "Years of Experience" },
-  { value: 200, suffix: "+", label: "Satisfied Clients" },
-  { value: 108, suffix: "+", label: "Completed Projects" },
-  { value: 90, suffix: "%", label: "Client Retention Rate" },
+  { value: 13, suffix: "+", label: "Years in Operations" },
+  { value: 5, suffix: "", label: "Core AI Systems" },
+  { value: 3, suffix: "", label: "AI Focus Areas" },
+  { value: 1, suffix: "", label: "Real Estate Domain" },
 ];
 
 const logoIconsList = [
-  {
-    imgPath: "/images/logos/company-logo-1.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-2.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-3.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-4.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-5.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-6.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-7.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-8.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-9.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-10.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-11.png",
-  },
+  { name: "React", imgPath: "/images/logos/react.png" },
+  { name: "Python", imgPath: "/images/logos/python.svg" },
+  { name: "Node.js", imgPath: "/images/logos/node.png" },
+  { name: "Three.js", imgPath: "/images/logos/three.png" },
+  { name: "Git", imgPath: "/images/logos/git.svg" },
 ];
 
 const abilities = [
   {
-    imgPath: "/images/seo.png",
-    title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
+    imgPath: "/images/concepts.svg",
+    title: "Workforce OS",
+    desc: "AI workforce governance and execution for agents, tasks, workflows, approvals, memory, artifacts, and orchestration.",
   },
   {
-    imgPath: "/images/chat.png",
-    title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+    imgPath: "/images/code.svg",
+    title: "Baseline Studios / Arkitech",
+    desc: "A capability-building layer for turning business problems into structured agents, tools, skills, workflows, and deployable systems.",
   },
   {
     imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+    title: "Built From Operations",
+    desc: "My product thinking starts with real property workflows, maintenance, leasing, documentation, communication, and execution.",
   },
 ];
 
 const techStackImgs = [
-  {
-    name: "React Developer",
-    imgPath: "/images/logos/react.png",
-  },
-  {
-    name: "Python Developer",
-    imgPath: "/images/logos/python.svg",
-  },
-  {
-    name: "Backend Developer",
-    imgPath: "/images/logos/node.png",
-  },
-  {
-    name: "Interactive Developer",
-    imgPath: "/images/logos/three.png",
-  },
-  {
-    name: "Project Manager",
-    imgPath: "/images/logos/git.svg",
-  },
+  { name: "React", imgPath: "/images/logos/react.png" },
+  { name: "Python", imgPath: "/images/logos/python.svg" },
+  { name: "Node.js", imgPath: "/images/logos/node.png" },
+  { name: "Three.js", imgPath: "/images/logos/three.png" },
+  { name: "Git", imgPath: "/images/logos/git.svg" },
 ];
 
 const techStackIcons = [
-  {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
-  },
+  { name: "React", modelPath: "/models/react_logo-transformed.glb", scale: 1, rotation: [0, 0, 0] },
+  { name: "Python", modelPath: "/models/python-transformed.glb", scale: 0.8, rotation: [0, 0, 0] },
+  { name: "Node.js", modelPath: "/models/node-transformed.glb", scale: 5, rotation: [0, -Math.PI / 2, 0] },
+  { name: "Three.js", modelPath: "/models/three.js-transformed.glb", scale: 0.05, rotation: [0, 0, 0] },
+  { name: "Git", modelPath: "/models/git-svg-transformed.glb", scale: 0.05, rotation: [0, -Math.PI / 4, 0] },
 ];
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review: "Property operations, field coordination, maintenance, leasing, vendor, owner, and resident workflows.",
     imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+    logoPath: "/images/fav.png",
+    title: "Property Manager & Field Manager — 10X Property Management",
+    date: "2023 - 2026",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Managed property and field operations across maintenance, leasing, inspections, vendors, owners, and residents.",
+      "Coordinated repairs, property readiness, work delegation, and issue follow-through.",
+      "Used hands-on operational experience to identify workflows that can be improved with AI and automation.",
     ],
+    showStars: false,
   },
   {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    review: "Leasing operations, customer experience, property readiness, and process coordination.",
     imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    logoPath: "/images/fav.png",
+    title: "Leasing Manager — Haven Residential",
+    date: "2021 - 2023",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Managed leasing workflows, prospect communication, tours, follow-up, and property readiness.",
+      "Coordinated with operational teams to support move-ins and resident experience.",
+      "Worked across high-volume communication and documentation processes that shaped later automation ideas.",
     ],
+    showStars: false,
   },
   {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
+    review: "Operational execution, team coordination, customer service, documentation, and compliance workflows.",
     imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
+    logoPath: "/images/fav.png",
+    title: "Operations Manager — Cash America",
+    date: "2018 - 2021",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Managed day-to-day operations, workflow execution, customer service, and team coordination.",
+      "Maintained documentation and process consistency in a compliance-focused environment.",
+      "Built practical experience in operational problem-solving, prioritization, and accountability.",
     ],
+    showStars: false,
+  },
+  {
+    review: "Loan-file coordination, documentation accuracy, stakeholder communication, and processing support.",
+    imgPath: "/images/exp2.png",
+    logoPath: "/images/fav.png",
+    title: "Loan Processor — American Bank",
+    date: "2017 - 2018",
+    responsibilities: [
+      "Coordinated loan documentation and processing workflows.",
+      "Supported communication between borrowers, internal stakeholders, and required documentation steps.",
+      "Focused on file accuracy, completeness, and timely progression through the process.",
+    ],
+    showStars: false,
+  },
+  {
+    review: "Residential property management, leasing, maintenance coordination, and resident communication.",
+    imgPath: "/images/exp1.png",
+    logoPath: "/images/fav.png",
+    title: "Property Manager — Rickert Property Management",
+    date: "2014 - 2017",
+    responsibilities: [
+      "Managed residential property operations including leasing, maintenance coordination, and resident communication.",
+      "Worked with vendors and property stakeholders to keep day-to-day operations moving.",
+      "Developed the real-estate operations foundation that now informs my AI product work.",
+    ],
+    showStars: false,
   },
 ];
 
-const expLogos = [
-  {
-    name: "logo1",
-    imgPath: "/images/logo1.png",
-  },
-  {
-    name: "logo2",
-    imgPath: "/images/logo2.png",
-  },
-  {
-    name: "logo3",
-    imgPath: "/images/logo3.png",
-  },
-];
+const expLogos = [];
 
 const testimonials = [
   {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
-    review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
-    imgPath: "/images/client1.png",
+    name: "01",
+    mentions: "Start With The Workflow",
+    review: "Understand what people actually do before deciding where AI belongs.",
+    imgPath: "/images/concepts.svg",
+    showStars: false,
   },
   {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
-    review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
-    imgPath: "/images/client3.png",
+    name: "02",
+    mentions: "Find The Repetition",
+    review: "Identify repetitive work, bottlenecks, communication overhead, and operational friction.",
+    imgPath: "/images/time.png",
+    showStars: false,
   },
   {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
-    review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    imgPath: "/images/client2.png",
+    name: "03",
+    mentions: "Give AI The Right Tools",
+    review: "Connect models to data, APIs, skills, memory, voice, vision, workflows, and business rules.",
+    imgPath: "/images/code.svg",
+    showStars: false,
   },
   {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
-    review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
-  },
-  {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
-    review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
-    imgPath: "/images/client4.png",
-  },
-  {
-    name: "Albert Flores",
-    mentions: "@albertflores",
-    review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
+    name: "04",
+    mentions: "Build For The Real Operation",
+    review: "Make the result useful, understandable, observable, testable, and maintainable.",
+    imgPath: "/images/designs.svg",
+    showStars: false,
   },
 ];
 
 const socialImgs = [
-  {
-    name: "insta",
-    imgPath: "/images/insta.png",
-  },
-  {
-    name: "fb",
-    imgPath: "/images/fb.png",
-  },
-  {
-    name: "x",
-    imgPath: "/images/x.png",
-  },
-  {
-    name: "linkedin",
-    imgPath: "/images/linkedin.png",
-  },
+  { name: "GitHub", imgPath: "/images/logos/git.svg", url: "https://github.com/WaltLuv" },
 ];
 
 export {
