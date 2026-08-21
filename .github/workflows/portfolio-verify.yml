@@ -24,3 +24,10 @@ jobs:
         run: npm run lint
       - name: Build
         run: npm run build
+      - name: Upload verified build
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-dist
+          path: dist
+          if-no-files-found: error
+          retention-days: 3
