@@ -8,9 +8,17 @@ Protected baseline: `main`
 
 Known merged persistent-world baseline: `910bdf6d4b3377c17154c332ab888a876b03e053`
 
-For the implementation pass, create a new feature branch from the then-current `main`, suggested:
+This instruction pack lives on:
+
+`codex/final-portfolio-instructions-v1`
+
+That branch was created directly from the merged persistent-world `main` baseline and contains documentation only.
+
+For the actual implementation pass, create or use:
 
 `codex/final-ecosystem-world-v4`
+
+The implementation branch should be based on `codex/final-portfolio-instructions-v1` so all instructions remain inside the working tree while the underlying application code stays based on the merged `main` implementation.
 
 Do not work directly on `main`. Do not force push. Do not reset to an older snapshot.
 
@@ -34,20 +42,21 @@ Act as:
 
 1. `/AGENTS.md`
 2. `/START-HERE.md`
-3. `/docs/portfolio/EXPERIENCE-VISION.md`
-4. `/docs/portfolio/ECOSYSTEM-STORY.md`
-5. `/docs/portfolio/WORLD-ART-DIRECTION.md`
-6. `/docs/portfolio/VOICEOPS.md`
-7. `/docs/portfolio/VISIONOPS-REPAIR-COST.md`
-8. `/docs/portfolio/WORKFORCE-OS.md`
-9. `/docs/portfolio/BASELINE-STUDIOS-ARKITECH.md`
-10. `/docs/portfolio/WALTER-AI-TWIN.md`
-11. `/docs/portfolio/PROFESSIONAL-PORTFOLIO.md`
-12. `/docs/portfolio/BLENDER-PIPELINE.md`
-13. `/docs/portfolio/VISUAL-VERIFICATION.md`
-14. `/docs/portfolio/RELEASE-SCORECARD.md`
+3. `/docs/portfolio/MASTER-BUILD-BRIEF.md`
+4. `/docs/portfolio/EXPERIENCE-VISION.md`
+5. `/docs/portfolio/ECOSYSTEM-STORY.md`
+6. `/docs/portfolio/WORLD-ART-DIRECTION.md`
+7. `/docs/portfolio/VOICEOPS.md`
+8. `/docs/portfolio/VISIONOPS-REPAIR-COST.md`
+9. `/docs/portfolio/WORKFORCE-OS.md`
+10. `/docs/portfolio/BASELINE-STUDIOS-ARKITECH.md`
+11. `/docs/portfolio/WALTER-AI-TWIN.md`
+12. `/docs/portfolio/PROFESSIONAL-PORTFOLIO.md`
+13. `/docs/portfolio/BLENDER-PIPELINE.md`
+14. `/docs/portfolio/VISUAL-VERIFICATION.md`
+15. `/docs/portfolio/RELEASE-SCORECARD.md`
 
-Then audit current `main`, run the application, inspect the rendered implementation where possible, and continue through implementation. Do not stop at planning.
+Then audit the current application, run it, inspect the rendered implementation where possible, and continue through implementation. Do not stop at planning.
 
 ## Final product rule
 
