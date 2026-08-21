@@ -1,14 +1,24 @@
-Continue the Walter Thornton 3D portfolio from the current `main` branch of `WaltLuv/3d-portfolio`.
+Continue the Walter Thornton 3D portfolio in `WaltLuv/3d-portfolio`.
 
-The persistent-world implementation from PR #2 is already merged. Treat current `main` as the protected baseline; do not use older snapshots and do not work directly on main.
+The persistent-world implementation from PR #2 is already merged into `main`. The complete final instruction pack is already in the repository on branch:
+
+`codex/final-portfolio-instructions-v1`
+
+Use that branch as the instruction/source baseline so the docs remain in your working tree. Create or use the implementation branch:
+
+`codex/final-ecosystem-world-v4`
+
+based on `codex/final-portfolio-instructions-v1`.
+
+Do not work directly on `main`, do not reset to older snapshots, and do not force push.
 
 Before editing:
 1. Read `/AGENTS.md`.
 2. Read `/START-HERE.md`.
-3. Read every file under `/docs/portfolio/` in the order specified by START-HERE.md.
-4. Inspect the current repo, recent merge, persistent-world architecture, all 3D assets, product data, professional portfolio content, mobile/reduced-motion behavior, Netlify configuration, product links, and available visual/browser tooling.
-5. Create a safe implementation branch from current main: `codex/final-ecosystem-world-v4` (or a similarly clear Codex feature branch if that exact name already exists).
-6. Inspect `WaltLuv/CLI-Anything`, including its Codex skill and Blender skill. Verify `blender --version` and `cli-anything-blender --help` before claiming Blender use.
+3. Read `/docs/portfolio/MASTER-BUILD-BRIEF.md`.
+4. Read every remaining file under `/docs/portfolio/` in the exact order specified by `START-HERE.md`.
+5. Inspect the current persistent-world implementation, all 3D assets, current product data, Walter's professional portfolio content, mobile/reduced-motion behavior, Netlify configuration, product links, and available visual/browser tooling.
+6. Inspect `WaltLuv/CLI-Anything`, including `codex-skill/SKILL.md` and `skills/cli-anything-blender/SKILL.md`. Verify `blender --version` and `cli-anything-blender --help` before claiming Blender use.
 
 Then execute the full final visual-excellence pass. Do not stop after writing a plan.
 
@@ -20,6 +30,6 @@ Walter is the builder and recurring guide behind the ecosystem.
 
 The final site must remain a complete professional portfolio with About, experience, capabilities, resume, contact, verified product landing-page links, and recruiter-friendly direct navigation.
 
-Use the visual-validation and scorecard requirements in the repo docs. The project is not finished merely because lint/build pass. It must be visibly stronger, more cinematic, more game-like, and clearer as one connected ecosystem.
+Use the visual-validation loop and release scorecard in the repository. The project is not finished merely because lint/build pass. It must be visibly stronger, more cinematic, more game-like, and clearer as one connected ecosystem.
 
-Do not merge automatically. Push the finished branch, produce the preview/comparison/report, and wait for owner review before merging.
+Do not merge automatically. Push the finished implementation branch, produce the preview/comparison/report, and wait for owner review before merging.
