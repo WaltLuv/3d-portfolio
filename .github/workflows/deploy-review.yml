@@ -1,6 +1,8 @@
 name: Deploy Review
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [codex/final-ecosystem-world-v4]
   workflow_dispatch:
