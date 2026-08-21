@@ -10,38 +10,36 @@ const nextChapter = {
   "baseline-studios": "#process",
 };
 
-const MissionFlow = ({ project }) => (
-  <ol className={`mission-flow mission-flow-${project.slug}`} aria-label={`${project.name} mission sequence`}>
-    {project.missionFlow?.map((step, index) => (
-      <li className={step.includes("Approval") ? "requires-approval" : ""} key={step}>
-        <b>{String(index + 1).padStart(2, "0")}</b><span>{step}</span>
-      </li>
-    ))}
-  </ol>
-);
+const chapterProof = {
+  voiceops: ["Understands the request", "Resolves property + unit context", "Turns conversation into action"],
+  propcontrol: ["Creates the work", "Coordinates approvals + vendors", "Tracks the operation to completion"],
+  visionops: ["Captures evidence", "Finds the physical issue", "Creates repair intelligence"],
+  "workforce-os": ["Assigns governed work", "Routes through human approval", "Records completion + audit evidence"],
+  "baseline-studios": ["Starts with the business problem", "Assembles a reusable capability", "Tests, publishes, and deploys"],
+};
 
 const ProductActions = ({ project }) => (
-  <div className="product-actions">
-    <a href={nextChapter[project.slug]}>Continue mission <span>↓</span></a>
+  <div className="product-actions product-actions-editorial">
+    <a href={nextChapter[project.slug]}>Continue the mission <span>↓</span></a>
     {project.landingPage && <a href={project.landingPage} target="_blank" rel="noopener noreferrer">{project.ctaLabel} <span>↗</span></a>}
   </div>
 );
 
 const RepairCostChapter = () => (
   <article id="repair-cost-guide" data-world-step="4" className="world-chapter repair-cost-chapter" aria-labelledby="repair-cost-title">
-    <div className="chapter-panel chapter-panel-right repair-cost-narrative">
-      <header className="chapter-heading">
-        <p className="chapter-index">CHAPTER 05 · VISIONOPS SIGNATURE MOMENT</p>
-        <h2 id="repair-cost-title">Evidence Becomes<br /><span>Repair Intelligence.</span></h2>
-        <p>The illustrated Unit 204 finding becomes a structured repair scope, then a quote-ready operational artifact.</p>
+    <div className="chapter-panel chapter-panel-right repair-cost-narrative editorial-chapter-panel">
+      <header className="chapter-heading chapter-heading-editorial">
+        <p className="chapter-index">05 / REPAIR COST GUIDE</p>
+        <h2 id="repair-cost-title">Evidence becomes<br /><span>a repair artifact.</span></h2>
+        <p>VisionOps turns the Unit 204 finding into an illustrative repair scope and recognizable estimate document. That document becomes the object the workforce can approve, route, and execute.</p>
       </header>
-      <div className="quote-artifact" aria-label="Illustrative Repair Cost Guide quote sequence">
-        <div><span>Finding</span><strong>Water-affected drywall + plumbing area</strong></div>
-        <div><span>Scope</span><strong>Inspect · isolate · repair · restore</strong></div>
-        <div className="quote-artifact-result"><span>Repair Cost Guide</span><strong>Quote Generated</strong><small>Illustrative system visualization—no customer or fabricated pricing data.</small></div>
+      <div className="editorial-proof" aria-label="Repair Cost Guide sequence">
+        <span>Finding</span><i aria-hidden="true" />
+        <span>Scope</span><i aria-hidden="true" />
+        <strong>Quote Ready</strong>
       </div>
-      <ol className="repair-handoff"><li>Evidence</li><li>Finding</li><li>Scope</li><li>Quote</li><li>Owner approval</li><li>Workforce OS</li></ol>
-      <div className="product-actions"><a href="#workforce-os">Follow the artifact <span>↓</span></a></div>
+      <p className="chapter-disclaimer">Illustrative portfolio sequence. No customer data or fabricated pricing.</p>
+      <div className="product-actions product-actions-editorial"><a href="#workforce-os">Follow the estimate into Workforce OS <span>↓</span></a></div>
     </div>
   </article>
 );
@@ -52,20 +50,22 @@ const AppShowcase = () => (
     {portfolioProjects.map((project, index) => (
       <Fragment key={project.slug}>
         <article id={project.slug} data-world-step={project.journeyStep} className={`world-chapter project-chapter project-chapter-${project.slug}`} aria-labelledby={`${project.slug}-title`}>
-          <div className={`chapter-panel project-narrative ${index % 2 === 0 ? "chapter-panel-left" : "chapter-panel-right"}`}>
-            <header className="chapter-heading">
-              <p className="chapter-index">CHAPTER {project.chapter} · {project.category}</p>
+          <div className={`chapter-panel project-narrative editorial-chapter-panel ${index % 2 === 0 ? "chapter-panel-left" : "chapter-panel-right"}`}>
+            <header className="chapter-heading chapter-heading-editorial">
+              <p className="chapter-index">{project.chapter} / {project.category}</p>
               <h2 id={`${project.slug}-title`}>{project.name}</h2>
-              <p className="project-world-label">{project.visualLabel}</p>
+              <p className="project-role project-role-editorial">{project.role}</p>
             </header>
-            <p className="project-role">{project.role}</p>
-            <p className="project-value">{project.value}</p>
-            <p className="project-description">{project.description}</p>
-            <ul className="capability-ribbon" aria-label={`${project.name} capabilities`}>{project.capabilities.map((capability) => <li key={capability}>{capability}</li>)}</ul>
-            {project.workflow && <ol className="vision-chapter-flow" aria-label={`${project.name} workflow`}>{project.workflow.map((step) => <li className={step === "Repair Cost" ? "is-repair" : ""} key={step}><span>{step}</span></li>)}</ol>}
-            {project.missionFlow && <MissionFlow project={project} />}
-            {project.featured && <div className="repair-cost-callout"><span>Signature capability</span><strong>{project.featured}</strong><small>The next chapter visualizes quote generation as an operational artifact.</small></div>}
-            {project.slug === "workforce-os" && <div className="governance-legend"><span><i />Automated execution</span><span><i />Human approval required</span><strong>Controlled AI—not uncontrolled autonomy.</strong></div>}
+            <p className="project-value project-value-editorial">{project.value}</p>
+            <p className="project-description project-description-editorial">{project.description}</p>
+            <div className="chapter-proof" aria-label={`${project.name} operational proof`}>
+              {chapterProof[project.slug].map((item, proofIndex) => (
+                <div key={item}><span>{String(proofIndex + 1).padStart(2, "0")}</span><strong>{item}</strong></div>
+              ))}
+            </div>
+            {project.featured && <p className="signature-line"><span>Signature capability</span><strong>{project.featured}</strong></p>}
+            {project.slug === "workforce-os" && <p className="governance-statement">Automation where appropriate. Human approval where required. Audit evidence at the end.</p>}
+            {project.slug === "baseline-studios" && <p className="governance-statement">The capability is built in the workshop, tested, deployed into Workforce OS, and returned to the operating world.</p>}
             <ProductActions project={project} />
           </div>
         </article>
