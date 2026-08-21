@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { navLinks } from "../constants";
 
@@ -6,6 +6,8 @@ const NavBar = () => {
   // track if the user has scrolled down the page
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+  const navigationRef = useRef(null);
 
   useEffect(() => {
     // create an event listener for when the user scrolls
@@ -25,11 +27,23 @@ const NavBar = () => {
 
   useEffect(() => {
     if (!menuOpen) return undefined;
-    const closeOnEscape = (event) => {
-      if (event.key === "Escape") setMenuOpen(false);
+    const closeMenu = (restoreFocus = false) => {
+      setMenuOpen(false);
+      if (restoreFocus) requestAnimationFrame(() => menuButtonRef.current?.focus());
     };
-    window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    const handleKeyboard = (event) => {
+      if (event.key === "Escape") closeMenu(true);
+    };
+    const handlePointer = (event) => {
+      if (navigationRef.current?.contains(event.target) || menuButtonRef.current?.contains(event.target)) return;
+      closeMenu();
+    };
+    window.addEventListener("keydown", handleKeyboard);
+    window.addEventListener("pointerdown", handlePointer);
+    return () => {
+      window.removeEventListener("keydown", handleKeyboard);
+      window.removeEventListener("pointerdown", handlePointer);
+    };
   }, [menuOpen]);
 
   return (
@@ -39,10 +53,10 @@ const NavBar = () => {
           Walter Thornton
         </a>
 
-        <nav id="primary-navigation" className={`site-navigation ${menuOpen ? "open" : ""}`} aria-label="Primary navigation">
+        <nav ref={navigationRef} id="primary-navigation" className={`site-navigation ${menuOpen ? "open" : ""}`} aria-label="Primary navigation">
           <ul>
-            {navLinks.map(({ link, name }) => (
-              <li key={name} className="group">
+            {navLinks.map(({ link, name, mobileOnly }) => (
+              <li key={name} className={`group ${mobileOnly ? "mobile-only-nav" : ""}`}>
                 <a href={link} onClick={() => setMenuOpen(false)}>
                   <span>{name}</span>
                   <span className="underline" />
@@ -52,7 +66,7 @@ const NavBar = () => {
           </ul>
         </nav>
 
-        <button className="mobile-menu-button" type="button" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen((open) => !open)}>
+        <button ref={menuButtonRef} className="mobile-menu-button" type="button" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen((open) => !open)}>
           <span className="sr-only">Toggle navigation</span>{menuOpen ? "Close" : "Menu"}
         </button>
 

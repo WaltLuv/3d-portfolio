@@ -9,22 +9,17 @@ const WorldFallback = ({ checking = false, activeStep = 0 }) => {
   const chapter = journeyChapters[activeStep] || journeyChapters[0];
 
   return (
-    <div className={`world-webgl-fallback world-webgl-fallback-v2 ${checking ? "world-webgl-checking" : ""}`} data-fallback-step={activeStep}>
-      <div className="fallback-cinematic-scene" aria-hidden="true">
-        <span className="fallback-horizon" />
-        <span className="fallback-road-perspective" />
-        <span className="fallback-house fallback-house-primary"><i /><i /><i /></span>
-        <span className="fallback-house fallback-house-secondary"><i /><i /></span>
-        <span className="fallback-streetlight fallback-streetlight-a" />
-        <span className="fallback-streetlight fallback-streetlight-b" />
-        <span className="fallback-window-glow" />
-        <span className="fallback-ai-thread" />
-      </div>
+    <div className={`world-webgl-fallback world-webgl-fallback-v2 fallback-stage-${activeStep} ${checking ? "world-webgl-checking" : ""}`} data-fallback-step={activeStep}>
+      <div className="fallback-editorial-light" aria-hidden="true" />
       <div className="fallback-editorial-copy">
-        <span>{checking ? "ENTERING WALTER'S WORLD" : `CHAPTER ${String(activeStep + 1).padStart(2, "0")}`}</span>
+        <p>{checking ? "Entering Walter's world" : "Cinematic editorial mode"}</p>
+        <span>{String(activeStep + 1).padStart(2, "0")}</span>
         <strong>{chapter.label}</strong>
-        <p>{chapter.mission}</p>
-        {!checking && <small>3D is unavailable in this browser. The complete portfolio and ecosystem story remain accessible below.</small>}
+        <small>{chapter.mission}</small>
+        {!checking && <em>Unit 204 · One mission moving through the complete ecosystem</em>}
+      </div>
+      <div className="fallback-chapter-track" aria-hidden="true">
+        {journeyChapters.map((item, index) => <i className={index <= activeStep ? "is-active" : ""} key={item.id} />)}
       </div>
     </div>
   );

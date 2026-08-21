@@ -290,8 +290,15 @@ const VoiceEvent = ({ worldState, reducedMotion }) => {
     <group ref={group}>
       <Line points={[start.toArray(), end.toArray()]} color="#9a83d7" lineWidth={1} transparent opacity={0.5} />
       <mesh ref={pulse}><sphereGeometry args={[0.1, 12, 12]} /><meshStandardMaterial color="#eee9ff" emissive="#8166ca" emissiveIntensity={3.2} /></mesh>
-      <group position={start}>
-        {[0, 1].map((ring) => <mesh key={ring} rotation={[-Math.PI / 2, 0, 0]} scale={1 + ring * 0.55}><ringGeometry args={[0.2, 0.225, 28]} /><meshBasicMaterial color="#9a83d7" transparent opacity={0.58 - ring * 0.18} /></mesh>)}
+      <group position={start} rotation={[0, 0, 0]}>
+        <mesh><boxGeometry args={[0.52, 0.42, 0.08]} /><meshStandardMaterial color="#3a3536" metalness={0.18} roughness={0.62} /></mesh>
+        {[-0.13, 0, 0.13].map((x, index) => (
+          <mesh key={x} position={[x, 0, 0.048]}>
+            <boxGeometry args={[0.055, 0.12 + index * 0.08, 0.018]} />
+            <meshStandardMaterial color="#bda9e1" emissive="#8166ca" emissiveIntensity={1.6 + index * 0.45} />
+          </mesh>
+        ))}
+        <pointLight color="#8c72cc" intensity={1.5} distance={2.4} />
       </group>
       <Html center position={[-2.2, 4.7, 0.8]} distanceFactor={10}><div className="world-location-sign"><span>VOICEOPS</span><strong>A CALL BECOMES WORK</strong></div></Html>
     </group>
@@ -356,7 +363,14 @@ const VisionInspection = ({ worldState, reducedMotion }) => {
   return (
     <group ref={group} position={[4.7, 0, -4.2]}>
       <mesh ref={scan} position={[-2.2, 1.9, 0]}><boxGeometry args={[0.045, 4.4, 4.55]} /><meshBasicMaterial color="#5fe1cf" transparent opacity={0.16} depthWrite={false} side={THREE.DoubleSide} /></mesh>
-      <mesh ref={marker} position={[-0.62, 3.58, 1.4]}><ringGeometry args={[0.28, 0.32, 32]} /><meshBasicMaterial color="#82e6d7" transparent opacity={0.78} side={THREE.DoubleSide} /></mesh>
+      <group ref={marker} position={[-0.62, 3.58, 1.4]}>
+        {[[-0.24, 0.24], [0.24, 0.24], [-0.24, -0.24], [0.24, -0.24]].map(([x, y]) => (
+          <mesh key={`${x}-${y}`} position={[x, y, 0]}>
+            <boxGeometry args={[0.12, 0.035, 0.025]} />
+            <meshBasicMaterial color="#82e6d7" transparent opacity={0.7} />
+          </mesh>
+        ))}
+      </group>
       <group ref={finding} position={[-0.62, 3.56, 1.34]}>
         <mesh rotation={[0, Math.PI / 4, 0]} scale={[0.58, 0.22, 0.5]}><coneGeometry args={[1.4, 0.72, 4]} /><meshStandardMaterial color="#8d6e57" emissive="#3a786e" emissiveIntensity={0.4} roughness={0.8} /></mesh>
         <Html center position={[0, 0.65, 0.3]} distanceFactor={10}><span className="world-finding-tag">WATER-AFFECTED AREA</span></Html>

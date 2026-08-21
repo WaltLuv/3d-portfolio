@@ -7,6 +7,7 @@ const navLinks = [
   { name: "Process", link: "#process" },
   { name: "Capabilities", link: "#skills" },
   { name: "About", link: "#about" },
+  { name: "Contact", link: "#contact", mobileOnly: true },
 ];
 
 const words = [

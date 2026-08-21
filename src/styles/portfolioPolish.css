@@ -1,5 +1,42 @@
 /* Final portfolio polish: keep professional content clear without reverting to SaaS cards. */
 
+html,
+body { background: #090a09; }
+
+.navbar.scrolled {
+  border-bottom: 1px solid rgba(215, 197, 168, 0.1) !important;
+  background: linear-gradient(180deg, rgba(12, 11, 9, 0.92), rgba(12, 11, 9, 0.62), transparent) !important;
+}
+
+.navbar .logo,
+.site-navigation li { color: #e9e3da !important; }
+
+.site-navigation .underline { background: #c7a06d !important; }
+
+.navbar .contact-btn .inner {
+  color: #1b1712 !important;
+  background: #d8c29f !important;
+  box-shadow: none !important;
+}
+
+.mobile-menu-button {
+  color: #e8e1d7 !important;
+  border-color: rgba(216, 198, 169, 0.24) !important;
+  background: rgba(18, 16, 13, 0.9) !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible { outline-color: #d0aa77 !important; }
+
+.footer-link { color: #d8c09e !important; font-family: Inter, ui-sans-serif, system-ui, sans-serif !important; }
+
+.site-navigation .mobile-only-nav { display: none; }
+
 .editorial-arrival-panel {
   width: min(820px, 58vw) !important;
   padding: 0 !important;
@@ -302,6 +339,12 @@
 }
 
 @media (max-width: 768px) {
+  .site-navigation .mobile-only-nav { display: block; }
+  .site-navigation {
+    border-color: rgba(216, 198, 169, 0.18) !important;
+    background: rgba(16, 14, 12, 0.97) !important;
+  }
+  .site-navigation li { color: #e7e0d6 !important; }
   .editorial-arrival-panel { width: 100% !important; padding: 0 20px !important; }
   .editorial-arrival-panel h1 { font-size: clamp(48px, 14vw, 72px) !important; }
   .editorial-arrival-panel .chapter-lede { max-width: 94%; font-size: 15px !important; }

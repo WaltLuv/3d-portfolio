@@ -12,8 +12,6 @@
   --world-line: rgba(242, 238, 229, 0.16);
 }
 
-.walter-guide { display: none !important; }
-
 /* -------------------------
    World-space typography
    ------------------------- */
@@ -159,18 +157,6 @@
   font-size: 7px !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
-}
-
-/* Old floating HUD labels should not dominate any surviving legacy scene. */
-.world-object-label {
-  padding: 3px 6px !important;
-  color: #d8d3ca !important;
-  border-color: rgba(216, 211, 202, 0.14) !important;
-  background: rgba(25, 25, 24, 0.72) !important;
-  box-shadow: none !important;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
-  font-size: 6px !important;
-  letter-spacing: 0.08em !important;
 }
 
 /* -------------------------
@@ -369,18 +355,6 @@
   line-height: 1.5;
 }
 
-/* Remove obsolete dense checklist styling from this art direction. */
-.mission-flow,
-.capability-ribbon,
-.vision-chapter-flow,
-.quote-artifact,
-.repair-handoff,
-.governance-legend,
-.repair-cost-callout,
-.project-world-label {
-  display: none !important;
-}
-
 /* -------------------------
    Persistent controls
    ------------------------- */
@@ -521,171 +495,103 @@
   display: block !important;
   overflow: hidden;
   background:
-    radial-gradient(circle at 72% 35%, rgba(163, 116, 70, 0.13), transparent 28%),
-    linear-gradient(180deg, #111315 0%, #0b0d0e 52%, #080909 100%) !important;
+    radial-gradient(circle at 76% 30%, rgba(170, 122, 72, 0.1), transparent 26%),
+    linear-gradient(145deg, #151411 0%, #0b0c0c 58%, #060707 100%) !important;
 }
 
-.fallback-cinematic-scene {
+.fallback-editorial-light {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  background: linear-gradient(105deg, transparent 42%, rgba(235, 183, 112, 0.09) 53%, transparent 67%);
 }
 
-.fallback-horizon {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 52%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(204, 175, 137, 0.2), transparent);
-}
-
-.fallback-road-perspective {
-  position: absolute;
-  left: 50%;
-  bottom: -12%;
-  width: 44%;
-  height: 62%;
-  transform: translateX(-50%);
-  clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
-  background: linear-gradient(180deg, #242627, #161718);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-}
-
-.fallback-road-perspective::after {
+.fallback-editorial-light::after {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 8%;
-  width: 1px;
-  height: 86%;
-  background: repeating-linear-gradient(180deg, rgba(213, 190, 141, 0.52) 0 12px, transparent 12px 28px);
-}
-
-.fallback-house {
-  position: absolute;
-  bottom: 30%;
-  display: block;
-  background: #4e4941;
-  box-shadow: 0 28px 50px rgba(0, 0, 0, 0.32);
-}
-
-.fallback-house::before {
-  content: "";
-  position: absolute;
-  left: -6%;
-  right: -6%;
-  top: -38%;
-  height: 42%;
-  background: #2f2c28;
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-}
-
-.fallback-house i {
-  position: absolute;
-  top: 26%;
-  width: 15%;
-  height: 24%;
-  background: #b77f46;
-  box-shadow: 0 0 22px rgba(220, 151, 76, 0.22);
-}
-
-.fallback-house i:nth-child(1) { left: 18%; }
-.fallback-house i:nth-child(2) { left: 43%; }
-.fallback-house i:nth-child(3) { right: 18%; }
-.fallback-house-primary { left: 17%; width: 24%; height: 18%; }
-.fallback-house-secondary { right: 17%; width: 18%; height: 14%; opacity: 0.72; }
-
-.fallback-streetlight {
-  position: absolute;
-  bottom: 29%;
-  width: 2px;
-  height: 16%;
-  background: #3e4040;
-}
-
-.fallback-streetlight::after {
-  content: "";
-  position: absolute;
-  left: -4px;
-  top: -7px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #d8aa68;
-  box-shadow: 0 0 30px 12px rgba(198, 133, 64, 0.12);
-}
-
-.fallback-streetlight-a { left: 45%; }
-.fallback-streetlight-b { right: 32%; height: 13%; opacity: 0.76; }
-
-.fallback-window-glow {
-  position: absolute;
-  left: 23%;
-  bottom: 34%;
-  width: 4%;
-  height: 4%;
-  background: rgba(212, 142, 72, 0.16);
-  filter: blur(18px);
-}
-
-.fallback-ai-thread {
-  position: absolute;
-  left: 28%;
-  right: 28%;
-  bottom: 30%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(103, 166, 158, 0.4), transparent);
-  opacity: 0.4;
+  right: -5%;
+  bottom: 23%;
+  left: 45%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(209, 156, 91, 0.34), transparent);
+  box-shadow: 0 0 25px rgba(209, 156, 91, 0.15);
 }
 
 .fallback-editorial-copy {
   position: absolute;
-  z-index: 5;
+  z-index: 2;
   left: clamp(24px, 6vw, 90px);
-  top: 18%;
-  width: min(560px, 58vw);
+  top: 22%;
+  width: min(620px, 52vw);
   display: grid;
-  gap: 10px;
-  color: #eee9e0;
-  text-align: left;
-}
-
-.fallback-editorial-copy > span {
-  color: #c69b69;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: 9px;
-  font-weight: 750;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.fallback-editorial-copy > strong {
-  color: #f1ede5;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(42px, 6vw, 84px);
-  font-weight: 620;
-  letter-spacing: -0.06em;
-  line-height: 0.9;
+  color: #eee9df;
 }
 
 .fallback-editorial-copy > p {
-  max-width: 460px;
-  color: #b6b0a6;
-  font-size: 15px;
-  line-height: 1.55;
+  margin: 0 0 32px;
+  color: #b99567;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fallback-editorial-copy > span {
+  color: rgba(217, 198, 171, 0.16);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(88px, 14vw, 220px);
+  font-weight: 720;
+  letter-spacing: -0.08em;
+  line-height: 0.62;
+}
+
+.fallback-editorial-copy > strong {
+  margin-top: -4px;
+  color: #eee8dd;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(42px, 6.4vw, 94px);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
 }
 
 .fallback-editorial-copy > small {
-  max-width: 460px;
-  color: #7d7a74;
-  font-size: 10px;
+  max-width: 500px;
+  margin-top: 18px;
+  color: #c0bbb2;
+  font-size: clamp(14px, 1.2vw, 18px);
   line-height: 1.5;
 }
 
-/* Disable obsolete pseudo-isometric fallback if any legacy markup survives caching. */
-.fallback-world-map,
-.fallback-world-copy { display: none !important; }
+.fallback-editorial-copy > em {
+  margin-top: 26px;
+  color: #9c8a72;
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0.06em;
+}
+
+.fallback-chapter-track {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: clamp(18px, 3vw, 46px);
+  display: grid;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+
+.fallback-chapter-track i {
+  width: 2px;
+  height: 18px;
+  background: rgba(211, 194, 169, 0.2);
+}
+
+.fallback-chapter-track i.is-active { background: #c59b67; }
+
+.fallback-stage-1 .fallback-editorial-light,
+.fallback-stage-3 .fallback-editorial-light,
+.fallback-stage-4 .fallback-editorial-light { filter: hue-rotate(118deg) saturate(0.75); }
 
 @media (max-width: 900px) {
   .editorial-chapter-panel { width: min(620px, 70vw) !important; }
@@ -712,11 +618,11 @@
   .world-progress > span { display: none !important; }
   .world-progress { grid-template-columns: 1fr !important; }
   .world-progress > strong { font-size: 11px !important; }
-  .fallback-editorial-copy { top: 14%; width: 76vw; }
-  .fallback-editorial-copy > strong { font-size: clamp(40px, 13vw, 62px); }
-  .fallback-house-primary { left: 8%; width: 32%; }
-  .fallback-house-secondary { right: 7%; width: 25%; }
-  .fallback-road-perspective { width: 68%; }
+  .fallback-editorial-copy { top: 18%; left: 20px; width: calc(100vw - 58px); }
+  .fallback-editorial-copy > p { margin-bottom: 24px; }
+  .fallback-editorial-copy > span { font-size: clamp(76px, 29vw, 126px); }
+  .fallback-editorial-copy > strong { max-width: 86vw; font-size: clamp(40px, 13vw, 62px); }
+  .fallback-editorial-copy > small { max-width: 78vw; }
 }
 
 @media (max-width: 480px) {
