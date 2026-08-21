@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer id="world-end" data-world-step="8" className="footer world-ending">
+    <footer id="world-end" data-world-step="11" className="footer world-ending">
       <div className="footer-container">
         <div className="flex flex-col justify-center">
           <p>Real Estate Operations × AI Product Builder</p>

@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 
 import PersistentWorldExperience from "./PersistentWorldExperience";
 import { journeyChapters } from "./worldData";
+import FastPortfolioPanel from "../FastPortfolioPanel";
+import WalterGuide from "../WalterGuide";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -176,13 +178,16 @@ const WorldJourney = ({ children }) => {
 
   return (
     <>
-      <PersistentWorldExperience worldState={worldState} />
+      <PersistentWorldExperience worldState={worldState} activeStep={activeStep} />
+      <WalterGuide activeStep={activeStep} />
       <div className="world-interface" aria-label="Interactive world controls">
         <div className="world-progress" aria-live="polite">
           <span>{String(activeStep + 1).padStart(2, "0")} / {String(journeyChapters.length).padStart(2, "0")}</span>
           <strong>{journeyChapters[activeStep]?.label}</strong>
+          <small>{journeyChapters[activeStep]?.mission}</small>
         </div>
         <div className="world-control-group">
+          <FastPortfolioPanel />
           <button type="button" className="world-control world-explore-control" aria-pressed={exploreEnabled} onClick={toggleExplore}>
             <span className="world-control-dot" />Explore {exploreEnabled ? "On · WASD" : "Off"}
           </button>

@@ -53,8 +53,8 @@ const BuilderStudio = ({ worldState, reducedMotion, isMobile }) => {
 
   useFrame(({ clock }) => {
     const step = worldState.current.currentStep;
-    if (builderLabel.current) builderLabel.current.visible = step > 4.45 && step < 6.35;
-    if (contactLabel.current) contactLabel.current.visible = step > 6.55;
+    if (builderLabel.current) builderLabel.current.visible = step > 6.65 && step < 9.35;
+    if (contactLabel.current) contactLabel.current.visible = step > 9.65;
     if (signal.current && !reducedMotion) signal.current.rotation.z = clock.elapsedTime * 0.18;
   });
 

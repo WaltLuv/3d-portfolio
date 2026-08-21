@@ -15,10 +15,10 @@ const HowIBuild = () => {
   });
 
   return (
-    <section id="process" data-world-step="4.35" className="world-chapter process-chapter" aria-labelledby="process-title">
+    <section id="process" data-world-step="6.55" className="world-chapter process-chapter" aria-labelledby="process-title">
       <div className="chapter-panel chapter-panel-left process-narrative">
         <header className="chapter-heading">
-          <p className="chapter-index">BASELINE STUDIOS · SYSTEM DESIGN PROCESS</p>
+          <p className="chapter-index">BASELINE STUDIOS / ARKITECH · SYSTEM DESIGN PROCESS</p>
           <h2 id="process-title">How I Build</h2>
           <p>The intelligence beneath the operation starts with the operation itself.</p>
         </header>

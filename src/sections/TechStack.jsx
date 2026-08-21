@@ -16,10 +16,10 @@ const TechStack = () => {
   });
 
   return (
-    <section id="skills" data-world-step="5" className="world-chapter builder-chapter" aria-labelledby="capabilities-title">
+    <section id="skills" data-world-step="7" className="world-chapter builder-chapter" aria-labelledby="capabilities-title">
       <div className="chapter-panel chapter-panel-right builder-narrative">
         <header className="chapter-heading">
-          <p className="chapter-index">CHAPTER 06 · THE BUILDER&apos;S STUDIO</p>
+          <p className="chapter-index">CHAPTER 08 · THE BUILDER&apos;S STUDIO</p>
           <h2 id="capabilities-title">The Tools Behind The World.</h2>
           <p>The original dimensional technology models now live inside the shared studio—not in separate canvases.</p>
         </header>

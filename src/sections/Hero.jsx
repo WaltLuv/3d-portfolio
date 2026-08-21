@@ -13,7 +13,10 @@ const Hero = () => (
         I build software at the intersection of property operations, voice AI,
         computer vision, automation, and intelligent agents.
       </p>
-      <a className="enter-world-link" href="#propcontrol">
+      <div className="arrival-mission" aria-label="Illustrative ecosystem mission">
+        <span>Live mission</span><strong>Unit 204 · Active Water Leak</strong><small>One event. Five connected systems.</small>
+      </div>
+      <a className="enter-world-link" href="#voiceops">
         <span>Scroll to explore</span>
         <i aria-hidden="true">↓</i>
       </a>

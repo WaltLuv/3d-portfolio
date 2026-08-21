@@ -29,10 +29,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" data-world-step="7" className="world-chapter contact-chapter" aria-labelledby="contact-title">
+    <section id="contact" data-world-step="10" className="world-chapter contact-chapter" aria-labelledby="contact-title">
       <div className="chapter-panel chapter-panel-right contact-narrative">
         <div className="contact-intro">
-          <p className="chapter-index">CHAPTER 08 · CONTACT WORKSTATION</p>
+          <p className="chapter-index">CHAPTER 11 · CONTACT WORKSTATION</p>
           <h2 id="contact-title">Let&apos;s Build<br /><span>Something Useful.</span></h2>
           <p>I&apos;m interested in opportunities where AI, software, automation, and real operational problems intersect.</p>
           <div className="contact-links">

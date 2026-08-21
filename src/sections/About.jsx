@@ -10,10 +10,10 @@ const About = () => {
   });
 
   return (
-    <section id="about" data-world-step="6" className="world-chapter about-chapter" aria-labelledby="about-title">
+    <section id="about" data-world-step="9" className="world-chapter about-chapter" aria-labelledby="about-title">
       <div className="chapter-panel chapter-panel-left about-narrative">
         <div className="domain-heading">
-          <p className="chapter-index">CHAPTER 07 · DOMAIN ADVANTAGE</p>
+          <p className="chapter-index">CHAPTER 10 · DOMAIN ADVANTAGE</p>
           <h2 id="about-title">Built From Operations,<br /><span>Not Just Code.</span></h2>
         </div>
         <div className="domain-copy">
