@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 import { Room } from "../hero_models/Room";
+import StylizedHouse from "./StylizedHouse";
 
 const operations = [
   { label: "WORK ORDERS", position: [-5.1, 0.45, 2.1] },
@@ -57,72 +58,16 @@ const Window = ({ position, size = [0.62, 0.55, 0.06] }) => (
   </mesh>
 );
 
-const MainProperty = ({ hovered, onHover, reducedMotion }) => {
-  const property = useRef();
-
-  useFrame(({ clock }, delta) => {
-    if (!property.current) return;
-    const target = hovered ? 1.035 : 1;
-    const nextScale = reducedMotion ? target : THREE.MathUtils.damp(property.current.scale.x, target, 5, delta);
-    property.current.scale.setScalar(nextScale);
-    property.current.position.y = reducedMotion ? 0 : Math.sin(clock.elapsedTime * 0.6) * 0.025;
-  });
-
-  return (
-    <group
-      ref={property}
-      onPointerEnter={(event) => { event.stopPropagation(); onHover(true); }}
-      onPointerLeave={() => onHover(false)}
-    >
-      <mesh castShadow receiveShadow position={[0, 1.05, 0]}>
-        <boxGeometry args={[4.2, 2.1, 3.45]} />
-        <meshStandardMaterial color="#102b3a" metalness={0.1} roughness={0.62} />
-      </mesh>
-      <mesh castShadow position={[-0.55, 2.55, -0.05]}>
-        <boxGeometry args={[2.8, 1.25, 3.15]} />
-        <meshStandardMaterial color="#16384a" roughness={0.57} />
-      </mesh>
-      <mesh castShadow position={[-0.55, 3.48, -0.05]} rotation={[0, Math.PI / 4, 0]} scale={[1, 0.55, 0.82]}>
-        <coneGeometry args={[2.48, 1.45, 4]} />
-        <meshStandardMaterial color="#07131c" metalness={0.34} roughness={0.47} />
-      </mesh>
-      <mesh castShadow position={[2.68, 0.72, 0.2]}>
-        <boxGeometry args={[1.55, 1.44, 2.8]} />
-        <meshStandardMaterial color="#0c2534" roughness={0.64} />
-      </mesh>
-      <mesh castShadow position={[2.68, 1.63, 0.2]} rotation={[0, Math.PI / 4, 0]} scale={[1, 0.46, 1.18]}>
-        <coneGeometry args={[1.35, 0.9, 4]} />
-        <meshStandardMaterial color="#07131c" roughness={0.5} />
-      </mesh>
-      <mesh position={[0.35, 0.86, 1.74]}>
-        <boxGeometry args={[0.75, 1.55, 0.08]} />
-        <meshStandardMaterial color="#071117" metalness={0.45} roughness={0.35} />
-      </mesh>
-      <mesh position={[2.68, 0.72, 1.62]}>
-        <boxGeometry args={[1.18, 0.92, 0.07]} />
-        <meshStandardMaterial color="#0a1720" metalness={0.55} roughness={0.34} />
-      </mesh>
-      <Window position={[-1.3, 2.5, 1.56]} />
-      <Window position={[0.25, 2.5, 1.56]} />
-      <Window position={[-1.25, 1.05, 1.74]} size={[0.78, 0.72, 0.06]} />
-      <Window position={[1.22, 1.05, 1.74]} size={[0.72, 0.72, 0.06]} />
-      <mesh receiveShadow position={[0.36, 0.07, 2.25]}>
-        <boxGeometry args={[1.25, 0.13, 1.25]} />
-        <meshStandardMaterial color="#173541" roughness={0.85} />
-      </mesh>
-      {[[-0.28, 0.85, 2.05], [0.98, 0.85, 2.05]].map((position) => (
-        <mesh key={position.join("-")} castShadow position={position}>
-          <cylinderGeometry args={[0.08, 0.08, 1.7, 8]} />
-          <meshStandardMaterial color="#80a8b4" metalness={0.3} roughness={0.5} />
-        </mesh>
-      ))}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.035, 0]}>
-        <ringGeometry args={[3.15, 3.19, 64]} />
-        <meshBasicMaterial color={hovered ? "#78f4ff" : "#237b8d"} transparent opacity={hovered ? 0.9 : 0.35} />
-      </mesh>
-    </group>
-  );
-};
+const MainProperty = ({ hovered, onHover, reducedMotion }) => (
+  <StylizedHouse
+    hovered={hovered}
+    onHover={onHover}
+    reducedMotion={reducedMotion}
+    interactive
+    float
+    showAura
+  />
+);
 
 const BackgroundBuilding = ({ position, rotation = 0, scale = 1 }) => (
   <group position={position} rotation={[0, rotation, 0]} scale={scale}>
