@@ -29,34 +29,27 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" data-world-step="7" className="world-chapter contact-chapter" aria-labelledby="contact-title">
-      <div className="chapter-panel chapter-panel-right contact-narrative">
-        <div className="contact-intro">
-          <p className="chapter-index">CHAPTER 08 · CONTACT WORKSTATION</p>
-          <h2 id="contact-title">Let&apos;s Build<br /><span>Something Useful.</span></h2>
+    <section id="contact" data-world-step="10" className="world-chapter contact-chapter" aria-labelledby="contact-title">
+      <div className="chapter-panel chapter-panel-right contact-narrative editorial-chapter-panel contact-editorial">
+        <header className="chapter-heading chapter-heading-editorial">
+          <p className="chapter-index">11 / CONTACT</p>
+          <h2 id="contact-title">Let&apos;s build<br /><span>something useful.</span></h2>
           <p>I&apos;m interested in opportunities where AI, software, automation, and real operational problems intersect.</p>
-          <div className="contact-links">
-            <a href="https://github.com/WaltLuv" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
-          </div>
-          {!emailConfigured && <p className="contact-note">Direct email, LinkedIn, and résumé buttons will appear when their verified destinations are added.</p>}
+        </header>
+        <div className="contact-editorial-links">
+          <a href="https://github.com/WaltLuv" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
         </div>
-        <div className="contact-panel">
-          {emailConfigured ? (
-            <form ref={formRef} onSubmit={handleSubmit}>
-              <div><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" required /></div>
-              <div><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
-              <div><label htmlFor="message">What would you like to build?</label><textarea id="message" name="message" rows="5" required /></div>
-              <button type="submit" disabled={loading}>{loading ? "Sending…" : "Send Message"}<span>↗</span></button>
-              <p className="form-status" role="status" aria-live="polite">{status}</p>
-            </form>
-          ) : (
-            <div className="contact-fallback">
-              <span>CONTACT CHANNEL</span><strong>Configuration Ready</strong>
-              <p>The secure EmailJS integration remains available and will activate automatically when the repository’s environment variables are configured.</p>
-              <a href="https://github.com/WaltLuv" target="_blank" rel="noreferrer">Connect through GitHub <span>↗</span></a>
-            </div>
-          )}
-        </div>
+        {emailConfigured ? (
+          <form className="contact-editorial-form" ref={formRef} onSubmit={handleSubmit}>
+            <div><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" required /></div>
+            <div><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
+            <div><label htmlFor="message">What would you like to build?</label><textarea id="message" name="message" rows="5" required /></div>
+            <button type="submit" disabled={loading}>{loading ? "Sending…" : "Send message"}<span>↗</span></button>
+            <p className="form-status" role="status" aria-live="polite">{status}</p>
+          </form>
+        ) : (
+          <p className="contact-editorial-note">Verified public contact destinations appear only when they are available. GitHub is the current public connection point.</p>
+        )}
       </div>
     </section>
   );

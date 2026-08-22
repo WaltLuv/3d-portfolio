@@ -11,23 +11,20 @@ const stages = [
 const HowIBuild = () => {
   useGSAP(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    gsap.from(".process-stage", { opacity: 0, x: -28, stagger: 0.16, duration: 0.75, ease: "power2.out", scrollTrigger: { trigger: "#process", start: "top 70%" } });
+    gsap.from(".process-editorial li", { opacity: 0, y: 18, stagger: 0.12, duration: 0.65, ease: "power2.out", scrollTrigger: { trigger: "#process", start: "top 70%" } });
   });
 
   return (
-    <section id="process" data-world-step="4.35" className="world-chapter process-chapter" aria-labelledby="process-title">
-      <div className="chapter-panel chapter-panel-left process-narrative">
-        <header className="chapter-heading">
-          <p className="chapter-index">BASELINE STUDIOS · SYSTEM DESIGN PROCESS</p>
-          <h2 id="process-title">How I Build</h2>
+    <section id="process" data-world-step="6.55" className="world-chapter process-chapter" aria-labelledby="process-title">
+      <div className="chapter-panel chapter-panel-left process-narrative editorial-chapter-panel">
+        <header className="chapter-heading chapter-heading-editorial">
+          <p className="chapter-index">BASELINE STUDIOS / ARKITECH / SYSTEM DESIGN</p>
+          <h2 id="process-title">How I build.</h2>
           <p>The intelligence beneath the operation starts with the operation itself.</p>
         </header>
-        <ol className="process-pipeline">
+        <ol className="process-editorial">
           {stages.map(([number, title, description]) => (
-            <li className="process-stage" key={number}>
-              <div className="stage-node"><span>{number}</span><i /></div>
-              <div><h3>{title}</h3><p>{description}</p></div>
-            </li>
+            <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></li>
           ))}
         </ol>
       </div>

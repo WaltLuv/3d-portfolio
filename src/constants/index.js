@@ -1,11 +1,13 @@
 import assetUrl from "../utils/assetUrl";
 
 const navLinks = [
-  { name: "Systems", link: "#work" },
+  { name: "World", link: "#hero" },
+  { name: "Ecosystem", link: "#work" },
+  { name: "Experience", link: "#experience" },
   { name: "Process", link: "#process" },
   { name: "Capabilities", link: "#skills" },
   { name: "About", link: "#about" },
-  { name: "Contact", link: "#contact" },
+  { name: "Contact", link: "#contact", mobileOnly: true },
 ];
 
 const words = [

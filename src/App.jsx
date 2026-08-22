@@ -6,6 +6,7 @@ import ShowcaseSection from "./sections/ShowcaseSection";
 import Navbar from "./components/NavBar";
 import About from "./sections/About";
 import HowIBuild from "./sections/HowIBuild";
+import Experience from "./sections/Experience";
 import WorldJourney from "./components/world/WorldJourney";
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
       <ShowcaseSection />
       <HowIBuild />
       <TechStack />
+      <Experience />
       <About />
       <Contact />
     </main>

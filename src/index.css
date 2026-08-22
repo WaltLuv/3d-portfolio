@@ -1643,3 +1643,95 @@ body::before { display: none; }
   .world-control { transition: none; }
   .world-grain { display: none; }
 }
+
+/* Persistent mission layout */
+
+.project-chapter-workforce-os { min-height: 176svh; }
+.project-chapter-baseline-studios { min-height: 182svh; }
+.repair-cost-chapter { min-height: 168svh; }
+.experience-chapter { min-height: 165svh; }
+
+.product-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.product-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #e7e1d7;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.repair-cost-narrative { width: min(710px, 54vw); }
+.experience-narrative { width: min(760px, 58vw); }
+
+.fast-view-backdrop { position: fixed; z-index: 228; inset: 0; pointer-events: auto; background: rgba(0, 0, 0, .56); backdrop-filter: blur(5px); }
+.fast-portfolio-panel {
+  position: fixed;
+  z-index: 230;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(520px, 100vw);
+  padding: 28px;
+  overflow-y: auto;
+  color: #edf8f7;
+  border-left: 1px solid rgba(95, 222, 237, .25);
+  background: linear-gradient(145deg, rgba(8, 14, 18, .985), rgba(3, 7, 10, .985));
+  box-shadow: -30px 0 80px rgba(0, 0, 0, .55);
+  transform: translateX(105%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform .42s cubic-bezier(.22, .8, .25, 1), visibility .42s;
+}
+.fast-portfolio-panel.is-open { transform: translateX(0); visibility: visible; pointer-events: auto; }
+.fast-portfolio-panel > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(95, 222, 237, .17); }
+.fast-portfolio-panel header div { display: grid; gap: 5px; }
+.fast-portfolio-panel header span,
+.fast-portfolio-panel h2 { color: #6fb6bf; font: 650 8px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .13em; text-transform: uppercase; }
+.fast-portfolio-panel header strong { font-size: 25px; text-transform: uppercase; }
+.fast-portfolio-panel header button { padding: 7px 9px; color: #bcd3d5; border: 1px solid rgba(109, 218, 232, .2); font: 650 8px/1 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+.fast-portfolio-panel > p { margin: 22px 0; color: #aab8b8; font-size: 14px; line-height: 1.65; }
+.fast-portfolio-panel > nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(101, 220, 234, .13); }
+.fast-portfolio-panel > nav a { display: flex; justify-content: space-between; padding: 13px; color: #dceced; background: #081015; font-size: 11px; }
+.fast-portfolio-panel > section { margin-top: 26px; }
+.fast-portfolio-panel h2 { margin-bottom: 11px; }
+.fast-product-list { display: grid; gap: 1px; background: rgba(101, 220, 234, .11); }
+.fast-product-list > div { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 11px 12px; background: #070d11; }
+.fast-product-list a:first-child { display: grid; gap: 3px; color: #edf9f8; }
+.fast-product-list a b { font-size: 12px; }
+.fast-product-list a span { color: #7f9b9e; font: 600 7px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+.fast-external-link { color: #71dfe9; font-size: 8px; white-space: nowrap; }
+.fast-chapter-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: rgba(101, 220, 234, .11); }
+.fast-chapter-list a { display: flex; justify-content: space-between; gap: 7px; padding: 10px 11px; color: #c4dbdd; background: #070d11; font: 650 8px/1.25 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; transition: color 180ms ease, background 180ms ease; }
+.fast-chapter-list a:hover,
+.fast-chapter-list a:focus-visible { color: #fff; background: rgba(24, 70, 78, .58); }
+.fast-chapter-list a span { color: #61e2ee; }
+.fast-portfolio-panel > footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 25px; padding-top: 18px; border-top: 1px solid rgba(96, 217, 232, .16); }
+.fast-portfolio-panel footer a { color: #dcf8fb; font-size: 10px; }
+.fast-portfolio-panel footer span { color: #786f69; font-size: 9px; }
+
+@media (max-width: 1100px) {
+  .fast-portfolio-panel { width: min(520px, 100vw); }
+}
+
+@media (max-width: 768px) {
+  .project-chapter-workforce-os,
+  .project-chapter-baseline-studios,
+  .repair-cost-chapter,
+  .experience-chapter { min-height: 170svh; }
+  .repair-cost-narrative,
+  .experience-narrative { width: 100%; }
+  .world-progress small { display: none; }
+  .fast-portfolio-panel { padding: 22px 18px 80px; }
+  .fast-portfolio-panel > nav { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 430px) {
+  .fast-view-trigger { font-size: 0; gap: 0; }
+  .fast-view-trigger .world-control-dot { width: 7px; height: 7px; }
+  .fast-chapter-list { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fast-portfolio-panel { transition: none; }
+}

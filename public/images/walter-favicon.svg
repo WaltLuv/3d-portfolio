@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Walter Thornton monogram">
+  <rect width="64" height="64" rx="14" fill="#151411"/>
+  <path d="M14 18h7l5 25 6-19h6l6 19 5-25h7L48 48h-7l-6-18-6 18h-7L14 18Z" fill="#e9e1d5"/>
+  <path d="M13 13h38" stroke="#c79d68" stroke-width="3" stroke-linecap="round"/>
+</svg>
