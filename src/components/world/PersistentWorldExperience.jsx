@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
+import StylizedHouse from "../models/property/StylizedHouse";
 import PersistentWorldSceneV2 from "./PersistentWorldSceneV2";
 import { journeyChapters } from "./worldData";
 
@@ -59,6 +60,16 @@ const PersistentWorldExperience = ({ worldState, activeStep }) => {
         >
           <Suspense fallback={null}>
             <PersistentWorldSceneV2 worldState={worldState} isMobile={isMobile} reducedMotion={reducedMotion} />
+            <StylizedHouse
+              position={[0, 0, 0]}
+              scale={1.045}
+              reducedMotion={reducedMotion}
+              interactive={false}
+              float={false}
+              showAura={false}
+              missionHouse
+              worldState={worldState}
+            />
           </Suspense>
         </Canvas>
       )}
